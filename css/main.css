@@ -261,3 +261,29 @@ textarea {
   }
 }
 
+.custom-radius{
+  border-radius: 100% !important;
+}
+svg path, svg text{
+  cursor: pointer !important;
+}
+svg #groupBrooklyn:hover .brooklyn{
+  fill: darkred !important;
+}
+svg #groupQueens:hover .queens {
+  fill: yellow !important;
+}
+svg #groupBronx:hover .bronx {
+  fill: greenyellow !important;
+}
+svg #groupManhattan:hover .manhattan{
+  fill: dodgerblue !important;
+}
+svg #groupNewJersey:hover .newJersey {
+  fill: rosybrown !important;
+}
+svg #groupStatenIsland:hover .statenIsland {
+  fill: blue !important;
+}
+
+

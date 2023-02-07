@@ -1,12 +1,14 @@
 import City from "./city.js";
 import Player from './player.js';
 import Event from "./event.js";
+import Gui from "./gui.js";
 
 class Game {
   daysLeft;
 
   constructor() {
     this.daysLeft = 30;
+    this.gui = new Gui();
     this.newYork = new City();
     this.player = new Player(this.newYork.districts[0]);
 
@@ -24,17 +26,7 @@ class Game {
   nextDay(){
     if(this.isEvent()){
       let event = new Event();
-      console.log(event.name);
-      console.log(event.description);
-      if (event.name == "Robbery"){
-        event.robbery(this.player);
-      }
-      if(event.name == "Find Candies"){
-        event.findCandies(this.player);
-      }
-      if(event.name == "Offer"){
-        event.offer(this.player);
-      }
+      this.gui.eventModal(event, this.player);
     }
     this.daysLeft--;
   }
@@ -46,7 +38,7 @@ function run(){
   // console.log(game.player.cash);
   // console.log(game.player.candies);
   // console.log(game.player.inventorySpace);
-  // game.nextDay();
+  game.nextDay();
   // console.log(game);
   // console.log(game.player.cash);
   // console.log(game.player.candies);

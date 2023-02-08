@@ -1,6 +1,6 @@
 class Event {
   #eventIndex;
-  static #events = [["Robbery", "A stranger takes all your candies."],
+  static #events = [["Robbery", "A stranger takes all your cash."],
     ["Find Candies", "Lucky you! You find candies on the street."],
     ["Offer", "A stranger offers you a new bag for your candies."]];
 

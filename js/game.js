@@ -3,6 +3,7 @@ import Player from './player.js';
 import Event from "./event.js";
 import Gui from "./gui.js";
 
+
 class Game {
   daysLeft;
 
@@ -39,12 +40,12 @@ function run(){
   // console.log(game.player.candies);
   // console.log(game.player.inventorySpace);
   game.nextDay();
-  // console.log(game);
+  console.log(game);
   // console.log(game.player.cash);
   // console.log(game.player.candies);
   // console.log(game.player.inventorySpace);
 
-  console.log(game.player.location);
+  // console.log(game.player.location);
   console.log(game.player.location.getDistanceTo(game.newYork.districts[5]));
 }
 

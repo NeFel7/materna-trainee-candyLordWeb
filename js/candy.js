@@ -16,6 +16,10 @@ class Candy {
   setCurrentPrice(location) {
     return this.#minPrice + Math.floor(Math.random() * (this.#maxPrice-this.#minPrice));
   }
+
+  get amount(){
+    return this.#amount;
+  }
 }
 
 

@@ -2,56 +2,101 @@
 <html class="no-js" lang="">
 
 <head>
-	<meta charset="utf-8">
-	<title>Candy Lord</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Candy Lord</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="apple-touch-icon" href="icon.png">
-	<!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
 
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+        rel="stylesheet">
 
-	<meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#fafafa">
 </head>
 
-<body class="d-flex flex-column justify-content-center align-items-center">
-	<div class="row bg-primary">
-		<div class="text-center fs-5">Date: 06.02.2023</div>
-	</div>
+<body>
+<div id="eventModal" class="none">
+  <div class="popup">
+    <div class="popupImgContainer">
+      <img src="img/eventFindCandies.png" alt="EventImage">
+    </div>
+    <h2 id="popupTitle">Find Candies!</h2>
+    <p id="popupText">You find some Candies on the Street!</p>
+    <p id="popupMsg"></p>
+    <div class="popupBtnContainer">
+      <button type="button" id="popupConfirm">OK</button>
+      <button type="button" id="popupDecline">NO</button>
+    </div>
+  </div>
+</div>
 
-
-	<div id="main">
-
-	</div>
-	<!-- <div class="card w-75 mt-5">
-		<div class="card-body">
-			<h5 class="card-title border-bottom border-primary pb-3">Robbery</h5>
-			<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-			<div class="d-flex justify-content-evenly">
-				<button type="button" class="col-4 btn btn-primary">Yes</button>
-				<button type="button" class="col-4 btn btn-primary">No</button>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div class="main">
-  <svg class="img-fluid" version="1.1"
-       id="svg2"
-       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-       x="0px"
-       y="0px" width="1000px" height="1000px"
-       viewBox="0 0 2652 2582" enable-background="new 0 0 2652 2582" xml:space="preserve">
+<div id="page" class="site">
+  <div class="container">
+    <nav>
+      <ul>
+        <li class="active"><a href="#home"><span>Home</span><i class="ri-home-4-line"></i></a>
+        </li>
+        <li><a href="#bank"><span>Bank</span><i class="ri-bank-line"></i></a></li>
+        <li><a href="#loanShark"><span>Loanschark</span><i class="ri-hand-coin-line"></i></a>
+        </li>
+        <li><a href="#travel"><span>Travel</span><i class="ri-map-2-line"></i></a></li>
+        <li><a href="#shop">
+          <span>Shop</span>
+          <i class="ri-shopping-cart-line"></i>
+          <span class="label cart">0</span>
+        </a>
+        </li>
+      </ul>
+    </nav>
+    <section>
+      <div id="home">
+        <div class="homeCard">
+          <h4>Player Information</h4>
+          <div class="stats">
+              <div class="playerStat">Days</div>
+              <div class="playerStatNumber" id="playerDays">29</div>
+              <div class="playerStat">Inventory</div>
+              <div class="playerStatNumber" id="playerInventory">20</div>
+              <div class="playerStat">Cash</div>
+              <div class="playerStatNumber" id="playerCash">2000<span>$</span></div>
+              <div class="playerStat">Location</div>
+              <div class="playerStatNumber" id="playerLocation">Bronx</div>
+              <div class="playerStat">Bank</div>
+              <div class="playerStatNumber" id="playerBank">0</div>
+              <div class="playerStat">Debt</div>
+              <div class="playerStatNumber" id="playerDebt">0</div>
+          </div>
+        </div>
+        <div class="homeCard">
+          <h4>Candies on Hand</h4>
+          <div id="candyStats"></div>
+        </div>
+      </div>
+      <div id="bank">
+        <h2>Bank</h2>
+      </div>
+      <div id="loanShark">
+        <h2>Loanschark</h2>
+      </div>
+      <div id="travel">
+        <svg class="img-fluid" version="1.1"
+             id="svg2"
+             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px"
+             y="0px" width="90vw" height="90vh"
+             viewBox="0 0 2652 2582" enable-background="new 0 0 2652 2582"
+             xml:space="preserve">
 
   <g id="layer2">
 		<rect id="rect38259" x="0" y="-1.654"
           fill="lightblue" stroke="#000000" stroke-width="3.5433" width="2651.453"
           height="2593.339"></rect></g>
 
-    <g id="layer1">
+          <g id="layer1">
       <path id="path13422" fill="#C0C0C0" stroke="black" stroke-width="3.5433"
             d="M1612.037,0l-2.568,11.13l229.436,89.034h4.28
 		l3.425,1.712l0.855-7.705l3.425-1.712l7.705-7.705V72.768c0,0,1.712-3.424,3.424-3.853c1.712-0.428,10.701-7.276,10.701-7.276
@@ -66,15 +111,15 @@
 		s9.845,4.28,8.989-2.997c-0.856-7.276-3.853-12.413,0-12.413c3.852,0,11.129,0.856,12.413-4.28s0.856-17.979,4.28-21.402
 		c3.425-3.425,7.277-7.705,3.425-10.273s-20.118-1.284-17.122-10.701s7.277-22.259,2.141-23.115
 		c-5.137-0.855-8.133,3.853-10.701,2.997c-2.568-0.856-2.997-4.281-1.713-5.993S2291.354,0,2291.354,0H1612.037z"/>
-      <path id="path35597" fill="#C0C0C0" stroke="black" stroke-width="3.5433"
-            d="M2653.912,2040.089l-0.856-38.524
+            <path id="path35597" fill="#C0C0C0" stroke="black" stroke-width="3.5433"
+                  d="M2653.912,2040.089l-0.856-38.524
 		c0,0-39.38,2.568-71.056,2.568s-86.467-5.137-105.301-7.705s-57.359-8.562-65.92-8.562s-13.697-2.568-17.979,2.568
 		c-4.28,5.137-3.424,11.985-9.417,14.554c-5.992,2.568-6.849-0.855-10.272-0.855c-3.425,0-19.69,15.409-24.827,20.546
 		s-11.13,15.41,0,11.985c11.129-3.424,27.396-8.561,41.948-10.273c14.555-1.712,41.949-2.568,54.791,0.856s13.697,0,28.251,0
 		s35.101,5.137,41.949,5.137s18.834,2.568,30.819,3.425c11.986,0.855,26.539,0,35.957,2.568c9.416,2.568,14.553,0,29.107,0
 		C2625.66,2038.377,2653.056,2039.232,2653.912,2040.089z"/>
-      <path id="path36484" fill="#DFE1EE" stroke="black" stroke-width="3.5433"
-            d="M2403.258,1957.274l16.949,21.188l9.081-1.211
+            <path id="path36484" fill="#DFE1EE" stroke="black" stroke-width="3.5433"
+                  d="M2403.258,1957.274l16.949,21.188l9.081-1.211
 		l8.475-11.502l-2.421-10.896l-1.211-26.636l-3.633-7.87c0,0,17.556-14.528,22.398-15.739c4.843-1.21,9.08-6.054,10.896-9.08
 		s7.869,0,11.502-0.605c3.632-0.605,9.08-7.265,9.08-7.265l4.237,0.605c0,0,1.211,7.87-2.421,10.291
 		c-3.633,2.422-16.95,8.476-20.582,10.896c-3.633,2.422-8.476,3.027-9.08,9.08c-0.605,6.054,1.21,10.291-3.027,14.529
@@ -131,7 +176,7 @@
 		s-9.687,1.815-10.896,4.843c-1.211,3.026-1.211,3.026-1.211,3.026l18.16,3.027l-0.605,4.843l32.084-15.739l7.265,4.237l6.054-1.816
 		l10.896,23.609l-1.211,3.026l12.712,16.345l5.448,3.026l6.659,8.476l-1.816,39.953l3.027,12.107L2403.258,1957.274z"/>
 
-      <g id="groupNewJersey">
+            <g id="groupNewJersey">
         <path class="newJersey" id="newJersey" fill="lightgray" stroke="black"
               stroke-width="3.5433"
               d="M0-0.443v2433.525c0,0,8.475-14.528,12.106-23.003
@@ -194,7 +239,7 @@
 		s10.896-26.636,12.107-36.321c1.21-9.686,14.528-44.796,16.95-52.061c2.421-7.265,4.843-33.899,4.843-33.899H0z"/>
       </g>
 
-      <g id="groupManhattan">
+            <g id="groupManhattan">
         <path class="manhattan" id="manhattan" fill="lightgray" stroke="black"
               stroke-width="3.5433"
               d="M1135.19,1316.683c0,0-11.13-6.849-11.13-12.842
@@ -218,18 +263,18 @@
 		c-3.424,6.849-9.417,35.956-16.266,37.668s-15.41,5.993-15.41,5.993v3.424l-47.941,7.705l-0.856-6.849l-30.819,4.28l-17.978,12.842
 		l6.849,7.705l-29.107,29.107l-9.417-6.85l-5.993,3.425l3.425,10.273h-6.85l-4.28-7.705c0,0-3.424,2.568-7.704,3.424
 		C1141.182,1318.395,1136.902,1318.395,1135.19,1316.683z"/>
-        <path class="manhattan" id="manhattan1" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1380.814,1021.396c0,0,8.475-13.924,12.713-15.739
+              <path class="manhattan" id="manhattan1" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1380.814,1021.396c0,0,8.475-13.924,12.713-15.739
 		c4.237-1.816,13.317-15.134,15.739-18.767c2.421-3.632,11.501-13.317,13.923-16.949c2.421-3.633-0.605-4.238,6.659-11.502
 		c7.264-7.265,32.688-44.191,33.899-49.034s7.265-6.659,9.686-12.106c2.422-5.448,6.054-9.081,6.054-15.739
 		c0-6.659,2.422-13.924-2.422-9.687c-4.842,4.238-13.317,8.476-16.949,13.924c-3.633,5.448-3.633,12.712-6.054,15.739
 		c-2.422,3.026-11.502,12.712-12.713,16.95c-1.21,4.237-13.317,17.555-15.134,21.187c-1.815,3.633-6.658,8.476-6.658,10.896
 		c0,2.422-10.896,16.95-13.924,21.793c-3.026,4.843-16.345,21.188-16.345,24.819c0,3.633-9.686,19.372-9.686,19.372
 		L1380.814,1021.396z"/>
-        <path class="manhattan" id="manhattan2" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1530.942,825.261c0,0,5.448,5.447,9.08,1.815
+              <path class="manhattan" id="manhattan2" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1530.942,825.261c0,0,5.448,5.447,9.08,1.815
 		c3.633-3.632,7.87-6.659,12.107-7.869c4.237-1.211,10.291-3.633,10.291-7.87s9.08-29.662,12.713-34.505
 		c3.632-4.843,23.003-18.161,23.003-23.609s-6.659-23.608-9.686-26.03c-3.026-2.421-18.766-17.555-23.004-21.188
 		c-4.237-3.632-3.632-7.264-8.475-7.264s-9.08-0.605-10.896,2.421c-1.815,3.027-6.659,13.924-6.659,18.767s1.211,9.08,1.211,15.134
@@ -238,7 +283,7 @@
 		C1523.678,820.418,1530.336,826.471,1530.942,825.261z"/>
       </g>
 
-      <g id="groupQueens">
+            <g id="groupQueens">
         <path class="queens" id="queens" fill="lightgray" stroke="black"
               stroke-width="3.5"
               stroke-miterlimit="10" d="M1377.787,1100.092
@@ -285,9 +330,9 @@
 		l5.448-7.264l-4.237-4.237l-3.633-13.924l-6.658-4.843l-3.027-10.896l7.265-7.869l-6.659-7.265v-10.291l-6.659-10.291
 		l-10.896-27.846l-7.264-9.081l-23.609-6.658l-15.134-6.659l-8.475-8.475l-10.896-24.82l-47.218-21.792l-20.582,1.21
 		L1377.787,1100.092z"/>
-        <path class="queens" id="queens1" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1495.608,2233.567l35.101-11.985l81.329-23.971
+              <path class="queens" id="queens1" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1495.608,2233.567l35.101-11.985l81.329-23.971
 		l34.244-4.281l21.402-6.848l2.568,5.992l130.128-46.229l30.819-13.697l-0.856-5.993l13.698,2.568c0,0,85.609-46.229,96.739-52.223
 		c11.129-5.992,65.063-23.971,78.761-29.106c13.698-5.137,74.48-27.396,80.474-29.107c5.993-1.713,86.466-17.979,86.466-17.979
 		l5.993-5.993c0,0,54.79-14.553,61.64-14.553c6.849,0,30.819,3.424,35.1,3.424s57.359-3.424,57.359-3.424
@@ -306,9 +351,9 @@
 		l-12.106-9.08h-8.476l-24.819,15.739l-13.317,3.632l-6.054-1.816l-8.476,3.633l-5.447-3.027c0,0-4.238,6.054-9.687,6.054
 		s-13.923,4.237-19.371,5.448s-16.95,5.448-20.582,5.448s-4.843,4.237-6.659,7.265c-1.815,3.026-7.264,3.026-7.264,7.869
 		s0,24.215,0,24.215L1495.608,2233.567z"/>
-        <path class="queens" id="queens2" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2222.862,1840.441c0,0,1.816-6.659-3.026-8.476
+              <path class="queens" id="queens2" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2222.862,1840.441c0,0,1.816-6.659-3.026-8.476
 		c-4.843-1.815-10.896-6.659-10.896-9.686s0.605-4.237-3.632-7.869c-4.237-3.633-7.265-6.659-4.237-8.476
 		c3.026-1.816,3.026-3.632-1.211-3.632s-6.054-1.211-4.237-5.448s3.026-1.816-1.816-6.054s-6.054-6.054-10.291-7.869
 		c-4.237-1.816-8.475,0.605-7.869-2.422c0.605-3.026,4.843-4.237,0-4.237s-18.161,4.843-18.161,4.843s-1.815,5.448-2.421,9.08
@@ -316,36 +361,36 @@
 		s-6.659,8.475-7.265,12.106c-0.605,3.633,1.816,4.844-0.605,7.265c-2.421,2.422-1.815,4.237-4.236,7.265
 		c-2.422,3.026-6.055,6.658,1.21,6.658s16.95-0.605,21.793,2.422c4.843,3.026,15.739,12.713,15.739,12.713
 		s1.211,13.923,4.237,13.317s18.767-21.793,24.819-23.004c6.054-1.21,11.502-5.448,11.502-5.448L2222.862,1840.441z"/>
-        <path class="queens" id="queens3" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2112.082,1900.976c0,0,12.713,3.026,15.134,3.026
+              <path class="queens" id="queens3" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2112.082,1900.976c0,0,12.713,3.026,15.134,3.026
 		s14.528,0,18.767,0c4.236,0,13.923-8.475,12.712-12.106c-1.211-3.633-3.026-9.081-2.421-11.502
 		c0.604-2.422-7.265-11.502-10.291-12.713c-3.027-1.21-10.896-4.843-14.529-4.843c-3.632,0-9.686,1.816-13.317,4.237
 		c-3.632,2.422-5.448,7.265-7.265,10.896c-1.816,3.633-1.816,6.659-1.211,9.081
 		C2110.266,1889.474,2112.688,1902.187,2112.082,1900.976z"/>
-        <path class="queens" id="queens4" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2109.055,1842.862c0,0,7.87,2.422,10.291-1.211
+              <path class="queens" id="queens4" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2109.055,1842.862c0,0,7.87,2.422,10.291-1.211
 		c2.422-3.632,6.659-13.923,6.659-18.766s1.816-9.686-0.604-12.712c-2.422-3.027-1.816-8.476-1.816-8.476s7.869,10.896,8.475,7.265
 		c0.605-3.633,0-15.134,3.027-17.556c3.026-2.421,7.264-10.896,7.264-10.896s12.713-4.237,10.896-7.265
 		c-1.816-3.026-4.237-1.21-9.08,0c-4.843,1.211-0.605-4.237,2.421-6.658c3.027-2.422,2.422-3.633,2.422-3.633l-8.476-5.447
 		c0,0-1.815-1.816-7.264-1.816s-4.843,4.843-10.291,5.448s-3.027,2.421-7.265,5.448c-4.237,3.026-12.106,6.054-12.106,6.054
 		l-7.265,10.896l0.605,6.658v4.843l9.08,20.582l-0.605,7.87l4.843,4.237L2109.055,1842.862z"/>
-        <path class="queens" id="queens5" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2058.811,1904.608l21.188-12.106l1.816,18.766
+              <path class="queens" id="queens5" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2058.811,1904.608l21.188-12.106l1.816,18.766
 		l4.843,6.054c0,0-3.026,0-3.026,4.237s1.815,10.291-0.605,12.713c-2.422,2.421-6.054,4.237-6.054,4.237l-6.054-1.816l-4.843-9.08
 		l-4.843-6.659L2058.811,1904.608z"/>
-        <path class="queens" id="queens6" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2085.447,1824.096l-5.448-13.923l-4.843-18.767
+              <path class="queens" id="queens6" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2085.447,1824.096l-5.448-13.923l-4.843-18.767
 		l5.448-19.977c0,0-6.054-19.977-7.869-23.608c-1.816-3.633-11.502-13.924-11.502-13.924l-6.054-2.421c0,0-3.632,5.448-3.632,9.08
 		s6.053,13.923,6.053,16.345c0,2.421,2.422,5.448,1.816,7.869c-0.605,2.422-0.605,7.87,1.816,7.87c2.421,0,6.658,5.448,4.843,8.475
 		c-1.816,3.026,0,9.08,2.421,13.317c2.422,4.238,8.476,17.556,8.476,19.978c0,2.421,4.843,11.501,4.843,11.501L2085.447,1824.096z"
-        />
-        <path class="queens" id="queens7" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2017.647,1686.075l0.605,17.556l-14.528,6.659
+              />
+              <path class="queens" id="queens7" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2017.647,1686.075l0.605,17.556l-14.528,6.659
 		l-16.345-15.134l-9.08-3.027l-0.605,3.027l7.264,33.294l-6.658,25.425l-4.237,6.054l3.026,4.237l-6.054,6.054v10.896l-6.054,4.237
 		l-3.632,21.793l4.843,15.134l-13.317-1.211l-4.237,9.081l14.528,10.896l-3.027,3.632l5.448,14.528l9.686-9.686l1.211-10.896
 		l15.134-3.027l3.027,6.054l12.712,7.265l7.87-4.843l1.21,10.291l7.87,10.291l4.843,10.896l8.475,3.026l-12.712,13.924l1.815,3.632
@@ -357,26 +402,26 @@
 		c-3.027-3.632-8.476-9.08-8.476-12.713c0-3.632,4.238-6.054,1.816-12.106c-2.422-6.054-4.843-12.713-9.08-12.713
 		c-4.238,0-7.265-3.632-7.265-3.632l-0.605-10.896c0,0,6.054-6.659,5.448-9.08c-0.605-2.422-3.632-7.87-3.632-7.87l-6.659-6.658
 		l-3.632-17.556L2017.647,1686.075z"/>
-        <path class="queens" id="queens8" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1923.211,1977.251c0,0,6.054,1.816,9.081,1.211
+              <path class="queens" id="queens8" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1923.211,1977.251c0,0,6.054,1.816,9.081,1.211
 		c3.026-0.605,7.869,1.211,9.08-1.211c1.211-2.421,3.026-8.475,6.054-8.475c3.026,0,7.869,0.605,4.237,6.054
 		c-3.632,5.447-1.211,4.843,0,10.896c1.211,6.053,0.605,10.291,6.659,10.896c6.053,0.605,11.501,0.605,16.949,0.605
 		s5.448-0.605,6.054-4.237s-0.605-4.843,1.816-8.475c2.421-3.633,4.843-6.659,3.026-10.291c-1.816-3.633-3.632-6.659-8.475-6.659
 		s-6.054-2.421-10.291-5.448c-4.237-3.026-1.816-4.237-4.843-8.475c-3.027-4.237-8.476-4.237-11.502-4.237
 		s-7.265,3.026-11.502,4.237s-10.291,3.026-10.291,3.026s-1.815,6.659-6.054,11.502
 		C1918.974,1973.013,1922.606,1978.462,1923.211,1977.251z"/>
-        <path class="queens" id="queens9" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1967.403,1897.949l6.659-0.604l19.977-5.448
+              <path class="queens" id="queens9" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1967.403,1897.949l6.659-0.604l19.977-5.448
 		l-3.027-14.529l-9.08-10.896l-8.475,9.686l-7.265,10.896L1967.403,1897.949z"/>
-        <path class="queens" id="queens10" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2001.302,1893.107l10.896-2.422l1.211-3.632
+              <path class="queens" id="queens10" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2001.302,1893.107l10.896-2.422l1.211-3.632
 		l-3.026-8.476v-8.475l-9.081-4.237l1.816,12.712l-3.026,10.896L2001.302,1893.107z"/>
       </g>
 
-      <g id="groupBronx">
+            <g id="groupBronx">
         <path class="bronx" id="bronx" fill="lightgray" stroke="black"
               stroke-width="3.5433"
               d="M1610.243,11.664c0,0-8.476,30.268-8.476,41.164
@@ -423,28 +468,28 @@
 		c-1.815-7.265-4.237-12.107-4.237-12.107h-14.528l-1.816-7.869l-23.608-11.502l-3.632,5.448l-9.081-7.265l8.476-13.923
 		l-8.476-0.605l-5.448,7.265l-3.632,6.053l4.237,4.844c0,0-4.843,6.053-9.686,6.658s-4.237,8.476-4.237,8.476v7.869l-7.265,7.87
 		l-3.632,1.815v7.265l-12.107-3.027L1610.243,11.664z"/>
-        <path class="bronx" id="bronx1" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1708.916,723.561l-9.08,47.218h7.264l7.87,18.766
+              <path class="bronx" id="bronx1" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1708.916,723.561l-9.08,47.218h7.264l7.87,18.766
 		l46.007,9.081l26.636-1.211l11.501-5.448c0,0-2.421-8.475-1.815-10.896s-13.924-21.793-13.924-21.793l-8.475,6.054v-12.107
 		l-13.923-9.686l-23.609-5.448l-16.949-16.345l-5.448,3.633L1708.916,723.561z"/>
-        <path class="bronx" id="bronx2" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2159.3,367.613l-3.632,1.815l15.738,28.452
+              <path class="bronx" id="bronx2" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2159.3,367.613l-3.632,1.815l15.738,28.452
 		l-1.815,6.658l-1.816,7.87c0,0-5.448,9.686-5.448,12.713c0,3.026,9.686,13.923,10.896,16.345c1.211,2.421-3.026,8.475,1.211,10.291
 		c4.237,1.815,7.264,8.475,7.264,11.501c0,3.027,6.659,4.843,7.87,9.686c1.211,4.844,0,7.265,4.237,11.502s6.054,4.843,9.08,0.605
 		c3.027-4.237,9.081-7.869,7.265-14.528c-1.815-6.659,1.211-15.739-4.237-18.766c-5.448-3.027-5.448-9.081-3.633-12.713
 		c1.816-3.632,7.87-6.054,4.844-10.291c-3.027-4.237-8.476-19.977-8.476-25.425s-6.054-3.027-9.08-5.448
 		c-3.026-2.422-10.291-16.95-11.502-21.793c-1.21-4.843-3.632-13.923-3.632-18.766c0-4.844-1.816-4.844-4.237-4.844
 		c-2.422,0-4.237,3.633-4.237,3.633l-4.238,1.815l-1.815,4.843L2159.3,367.613z"/>
-        <path class="bronx" id="bronx3" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M2252.525,422.7l13.923,14.528h7.869l-3.632-7.869
+              <path class="bronx" id="bronx3" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M2252.525,422.7l13.923,14.528h7.869l-3.632-7.869
 		l-6.054-7.87l3.027-16.345l0.605-19.977l4.237-6.659l12.712-2.421l-27.846-33.295l-7.869,3.027V388.8l-1.211,4.238l7.264,15.134
 		L2252.525,422.7z"/>
       </g>
 
-      <g id="groupBrooklyn">
+            <g id="groupBrooklyn">
         <path class="brooklyn" id="brooklyn" fill="lightgray" stroke="black"
               stroke-width="3.5433"
               d="M1377.894,1099.662l28.252-14.982h20.546
@@ -483,70 +528,70 @@
 		l17.55-2.996l6.421-18.834l-5.137-8.134l-25.255-17.978l-10.273-18.834l1.284-20.547l72.341-58.643l34.244-80.474l15.838-17.55
 		h5.992l2.568,2.568l47.514-1.285c0,0,8.989-2.14,11.558-4.28c2.568-2.14,25.683-20.118,25.683-20.118l9.417,12.414l1.284-2.997
 		l-0.855-11.558l13.27-44.945l7.276-8.988l11.558-26.539l8.561-11.985l-0.428-29.964l-5.137-17.55V1099.662z"/>
-        <path class="brooklyn" id="brooklyn1" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1107.799,1361.605c0,0,0,8.475-4.843,12.107
+              <path class="brooklyn" id="brooklyn1" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1107.799,1361.605c0,0,0,8.475-4.843,12.107
 		c-4.843,3.632-18.161,18.16-20.582,22.397c-2.422,4.237-4.843,12.107-3.633,15.739c1.211,3.633,7.265,8.476,12.713,8.476
 		s31.479-23.609,35.11-23.609s7.87,2.422,12.107-2.421s4.237-7.265,6.658-9.686c2.422-2.422,1.816-9.081-1.815-13.318
 		s-3.632-7.869-10.291-9.686s-15.134-1.816-18.161-1.211C1112.036,1361,1106.588,1363.422,1107.799,1361.605z"/>
-        <path class="brooklyn" id="brooklyn2" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1000.651,1395.505c0,0,7.87,0,4.843-6.658
+              <path class="brooklyn" id="brooklyn2" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1000.651,1395.505c0,0,7.87,0,4.843-6.658
 		c-3.026-6.659-9.686-10.291-14.528-10.291s-6.054,3.632-3.632,6.658c2.421,3.027,3.632,7.265,6.659,9.081
 		C997.019,1396.11,1001.256,1396.716,1000.651,1395.505z"/>
-        <path class="brooklyn" id="brooklyn3" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1012.153,1345.866l8.475-10.291h7.265l1.816-7.87
+              <path class="brooklyn" id="brooklyn3" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1012.153,1345.866l8.475-10.291h7.265l1.816-7.87
 		l-13.318-10.291l-16.949,19.372L1012.153,1345.866z"/>
-        <path class="brooklyn" id="brooklyn4" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1865.098,1742.373l46.007,2.422l3.026-10.896
+              <path class="brooklyn" id="brooklyn4" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1865.098,1742.373l46.007,2.422l3.026-10.896
 		l10.896-7.264l6.659-25.426l-18.161-9.686l-41.164,26.636L1865.098,1742.373z"/>
-        <path class="brooklyn" id="brooklyn5" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1928.659,1745.4l9.081-10.896l21.188-7.869
+              <path class="brooklyn" id="brooklyn5" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1928.659,1745.4l9.081-10.896l21.188-7.869
 		l7.264,1.21l-0.605,9.081l-23.003,41.164L1928.659,1745.4z"/>
-        <path class="brooklyn" id="brooklyn6" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1849.359,1825.306l17.555-12.106l42.98-18.767
+              <path class="brooklyn" id="brooklyn6" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1849.359,1825.306l17.555-12.106l42.98-18.767
 		l10.291,0.605l10.896-6.053l-7.265-13.924l-7.869-6.054l-12.713,3.633l10.291-19.978l-6.053-2.421l-7.265,9.08l-16.345-3.026
 		l1.211,7.264l-9.08-3.026l-3.027-3.632l-7.264,4.843l-10.896,18.16l-5.448-6.054h-10.291l0.604,16.95l9.687-4.843l-3.633,29.057
 		h-9.686l1.211,7.87L1849.359,1825.306z"/>
-        <path class="brooklyn" id="brooklyn7" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1769.451,1832.571l35.716-10.291l23.004-10.896
+              <path class="brooklyn" id="brooklyn7" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1769.451,1832.571l35.716-10.291l23.004-10.896
 		l0.605-19.371l3.632-19.977l-9.686-13.318l-39.349,27.241L1769.451,1832.571z"/>
-        <path class="brooklyn" id="brooklyn8" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1955.295,1847.099l-10.291,3.633l-18.16-9.081
+              <path class="brooklyn" id="brooklyn8" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1955.295,1847.099l-10.291,3.633l-18.16-9.081
 		l3.026-12.712l5.448,1.815l-0.605-9.08l-12.712,3.632l-4.843,21.793l-4.844,7.265l2.422,22.398l-11.502,6.658l-4.237,7.265
 		l19.371,18.766l26.636-12.712L1955.295,1847.099z"/>
-        <path class="brooklyn" id="brooklyn9" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1873.573,1893.712l10.291,1.816l20.582-25.425
+              <path class="brooklyn" id="brooklyn9" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1873.573,1893.712l10.291,1.816l20.582-25.425
 		l0.605-29.662h-11.502l-5.448,5.447l7.265,7.87h-15.134l0.605-18.161l-13.318-6.053l7.265,17.555l-7.87,3.633l-4.237,10.896
 		l1.211,9.08l9.686,10.291V1893.712z"/>
-        <path class="brooklyn" id="brooklyn10" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1851.174,1913.084l-18.16,13.317l35.11,30.268
+              <path class="brooklyn" id="brooklyn10" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1851.174,1913.084l-18.16,13.317l35.11,30.268
 		l23.004-9.686l4.237-15.134L1851.174,1913.084z"/>
-        <path class="brooklyn" id="brooklyn11" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1813.643,1973.619c0,0-1.211,0-4.238,1.816
+              <path class="brooklyn" id="brooklyn11" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1813.643,1973.619c0,0-1.211,0-4.238,1.816
 		c-3.026,1.815-9.686,10.896-9.686,10.896l4.843,23.003l13.924-1.816l-13.318,20.582l8.476,27.241l8.475-4.843l19.371-32.084
 		l1.211-16.345c0,0-6.659-16.949-9.08-17.555c-2.422-0.605-6.659-3.633-9.686-4.238
 		C1820.906,1979.673,1814.248,1974.83,1813.643,1973.619z"/>
-        <path class="brooklyn" id="brooklyn12" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1814.248,1885.237v-15.134l-6.659-13.318
+              <path class="brooklyn" id="brooklyn12" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1814.248,1885.237v-15.134l-6.659-13.318
 		l1.815-9.08l-6.658-5.448l0.605,19.977l6.053,7.265l-3.026,3.026L1814.248,1885.237z"/>
-        <path class="brooklyn" id="brooklyn13" fill="lightgray" stroke="black"
-              stroke-width="3.5433"
-              d="M1813.037,1946.378l1.815-13.317l-3.632-3.027
+              <path class="brooklyn" id="brooklyn13" fill="lightgray" stroke="black"
+                    stroke-width="3.5433"
+                    d="M1813.037,1946.378l1.815-13.317l-3.632-3.027
 		l-1.211-21.793l-3.632,0.605l-0.605,24.215l5.448,1.211l-1.816,9.08L1813.037,1946.378z"/>
       </g>
 
-      <g id="groupStatenIsland">
+            <g id="groupStatenIsland">
         <path class="statenIsland" id="statenIsland" fill="lightgray" stroke="black"
               stroke-width="3.5433"
               d="M861.238,1637.721l-2.568,6.849l9.417,8.561
@@ -592,44 +637,38 @@
       </g>
 
 </g>
-    <g id="layer3">
-   <text transform="matrix(1 0 0 1 92.7014 322.0237)" font-family="'TimesNewRomanPSMT'" font-size="145">NEW YORK CITY</text>
-    <text class="manhattan" transform="matrix(0.5207 -0.8537 0.8537 0.5207 1240.8435 1084.6794)"
-          font-family="'TimesNewRomanPSMT'" font-size="70">MANHATTAN</text>
-      <text transform="matrix(1 0 0 1 1268.0266 1668.2039)" fill="black"
-            font-family="'TimesNewRomanPS-BoldMT'" font-size="70">BROOKLYN</text>
-      <text transform="matrix(1 0 0 1 1883.6624 1215.7239)"
-            font-family="'TimesNewRomanPSMT'" font-size="70">QUEENS</text>
-      <text transform="matrix(1 0 0 1 1699.8362 437.2283)"
-            font-family="'TimesNewRomanPS-BoldMT'" font-size="70">BRONX</text>
-      <text transform="matrix(1 0 0 1 432.2004 1942.5427)">
+          <g id="layer3">
+   <text transform="matrix(1 0 0 1 92.7014 322.0237)" font-family="'TimesNewRomanPSMT'"
+         font-size="145">NEW YORK CITY</text>
+            <text class="manhattan"
+                  transform="matrix(0.5207 -0.8537 0.8537 0.5207 1240.8435 1084.6794)"
+                  font-family="'TimesNewRomanPSMT'" font-size="70">MANHATTAN</text>
+            <text transform="matrix(1 0 0 1 1268.0266 1668.2039)" fill="black"
+                  font-family="'TimesNewRomanPS-BoldMT'" font-size="70">BROOKLYN</text>
+            <text transform="matrix(1 0 0 1 1883.6624 1215.7239)"
+                  font-family="'TimesNewRomanPSMT'" font-size="70">QUEENS</text>
+            <text transform="matrix(1 0 0 1 1699.8362 437.2283)"
+                  font-family="'TimesNewRomanPS-BoldMT'" font-size="70">BRONX</text>
+            <text transform="matrix(1 0 0 1 432.2004 1942.5427)">
       <tspan x="0" y="0" fill="black" stroke="#000000"
              font-family="'TimesNewRomanPS-BoldMT'" font-size="70">STATEN </tspan>
-        <tspan x="0" y="84" fill="black" stroke="#000000"
-               font-family="'TimesNewRomanPS-BoldMT'" font-size="70">ISLAND</tspan></text>
-      <text transform="matrix(1 0 0 1 300 900)"
-            font-family="'TimesNewRomanPS-BoldMT'" font-size="70">NEW JERSEY</text>
+              <tspan x="0" y="84" fill="black" stroke="#000000"
+                     font-family="'TimesNewRomanPS-BoldMT'" font-size="70">ISLAND</tspan></text>
+            <text transform="matrix(1 0 0 1 300 900)"
+                  font-family="'TimesNewRomanPS-BoldMT'" font-size="70">NEW JERSEY</text>
 
 </g>
 </svg>
-</div> -->
 
-	<div class="container position-absolute bottom-0 bg-secondary p-3">
-		<div class="row d-flex justify-content-evenly align-items-center">
-			<button type="button" class="col-1 btn btn-primary"></button>
-			<button type="button" class="col-1 btn btn-primary"></button>
-			<button type="button" class="col-1 btn btn-primary"></button>
-			<button type="button" class="col-1 btn btn-primary fs-1 custom-radius">H</button>
-			<button type="button" class="col-1 btn btn-primary"></button>
-			<button type="button" class="col-1 btn btn-primary"></button>
-			<button type="button" class="col-1 btn btn-primary"></button>
-		</div>
-	</div>
+      </div>
+      <div id="shop">
+        <h2>Shop</h2>
+      </div>
+    </section>
+  </div>
+</div>
 
-	<script type="module" src="js/game.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-		crossorigin="anonymous"></script>
+<script type="module" src="js/game.js"></script>
 </body>
 
 </html>
